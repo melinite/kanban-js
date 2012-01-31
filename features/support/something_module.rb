@@ -7,6 +7,8 @@ module SomethingModule
          page = 'releases'
       elsif page_name == 'stories'
          page = 'stories'
+      elsif page_name == 'board'
+         page = 'board'
       end
       "/#{page}"
    end

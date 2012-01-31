@@ -11,4 +11,8 @@ Feature: Navigation
       Then I should be on the "stories" page
       When I follow "Back"
       Then I should be on the "home" page
+      When I follow "Manage the board"
+      Then I should be on the "board" page
+      When I follow "Back"
+      Then I should be on the "home" page
 
