@@ -8,4 +8,6 @@ $(function() {
    $('.cancel').click(function() {
       kanban.goBack();
    });
+
+   $('input:submit, input:button, a.button').button();
 });
