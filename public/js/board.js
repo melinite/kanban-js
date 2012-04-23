@@ -1,17 +1,21 @@
 var kanban = kanban || {};
-kanban.board = {};
-
-kanban.board.initialize = function() {
-   $('.queue-body').sortable();
-   $('.story').draggable({ 
-      cursor: 'move',
-      cursorAt: { top: 0, left: 0 },
-      containment: '#kanban-board', 
-      revert: "invalid"
-   });
-   $('.queue-body').droppable();
-}
+kanban.Board = function() {
+   function _initialize() {
+      $('.queue-body').sortable({
+         revert: true
+      }).droppable();
+      $('.story').draggable({ 
+         connectToSortable: '.queue-body',
+         cursor: 'move',
+         cursorAt: { top: 0, left: 0 },
+         containment: '#kanban-board', 
+         revert: 'invalid'
+      });
+   }
+   return { initialize: _initialize };
+};
 
 $(function() {
-      kanban.board.initialize();
+      var board = new kanban.Board();
+      board.initialize();
 });
